@@ -1,4 +1,5 @@
-# WallrApp
+## About WallR
+
 WallR is a web application that receives SMS-messages through and Android app (which behaves as hub) and displays them live on a webpage.
 Visit [wallr.eu](https://wallr.eu) for more info.
 
