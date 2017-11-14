@@ -1,18 +1,25 @@
 package be.defrere.wallr;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Toast;
+
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import java.util.HashMap;
 import java.util.UUID;
+
 import be.defrere.wallr.http.HttpRequest;
 import be.defrere.wallr.http.HttpResponse;
 import be.defrere.wallr.http.HttpTask;
@@ -24,8 +31,15 @@ public class HomeActivity extends AppCompatActivity {
     FloatingActionButton fabAdd;
     Toolbar toolbar;
 
+    private static final int REQUEST_CODE_SEND_SMS = 16548;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        // Check permissions
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECEIVE_SMS) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.RECEIVE_SMS}, REQUEST_CODE_SEND_SMS);
+        }
+
         // Init API
         HttpRequest.setUrl("https://wallr.eu/api/");
 
