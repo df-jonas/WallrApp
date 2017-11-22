@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="title_toolbar_add_event">Voeg event toe</string>
+
+    <string name="add_event_name">Eventnaam</string>
+    <string name="add_event_name_description">Dit is de naam die zal getoond worden op de webpagina. Je kan dit later nogs wijzigen.</string>
+    <string name="add_event_keyword">Actie kernwoord</string>
+    <string name="add_event_keyword_description">Dit is het kernwoord dat gebruikers moeten meesturen in elk bericht. Kies een goed en duidelijk kernwoord.\n\nEen kernwoord kan enkel letters en cijfers bevatten.</string>
+    <string name="add_event_send">Maak event</string>
+</resources>

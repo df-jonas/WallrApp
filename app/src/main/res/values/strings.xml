@@ -1,6 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">WallR</string>
-    <string name="title_toolbar_home">WallR</string>
+    <string name="app_name" translatable="false">WallR</string>
+
+    <string name="title_toolbar_home" translatable="false">WallR</string>
     <string name="title_toolbar_add_event">Add event</string>
-    <string name="preferences">be.defrere.wallr.preferences</string>
+
+    <string name="preferences" translatable="false">be.defrere.wallr.preferences</string>
+
+    <string name="add_event_name">Event name</string>
+    <string name="add_event_name_description">This will be the event name that is displayed on the webpage. You can always change it later.</string>
+    <string name="add_event_keyword">Trigger keyword</string>
+    <string name="add_event_keyword_description">This will be the keyword that your users will have to provide in each message. Choose this one carefully.\n\nThis keyword can only contain alphanumeric characters.</string>
+    <string name="add_event_send">Make event</string>
 </resources>
