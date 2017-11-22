@@ -9,6 +9,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
+import java.util.Map;
 
 import be.defrere.wallr.helpers.DateTimeHelper;
 
@@ -29,7 +30,16 @@ public class HttpTask extends AsyncTask<HttpRequest, Integer, HttpResponse> {
         try {
             client = (HttpURLConnection) r.getUrl().openConnection();
             client.setRequestMethod(r.getVerb());
-            client.setRequestProperty("Authorization", "Bearer yCooI73EUFHfBR5lOpPS0CQBQsuD04em8NcoMeOWUeAmSWrjsEhxzjO5ir0a");
+            client.setRequestProperty("Accept", "application/json");
+            if (r.getHeaders() != null) {
+                for (Map.Entry<String, String> pair: r.getHeaders().entrySet()) {
+                    if (pair.getKey().equals("Authorization")) {
+                        pair.setValue("Bearer " + pair.getKey());
+                    }
+                    client.setRequestProperty(pair.getKey(), pair.getValue());
+                }
+            }
+
 
             if (r.getVerb() != "GET") {
                 client.setDoOutput(true);
@@ -78,6 +88,7 @@ public class HttpTask extends AsyncTask<HttpRequest, Integer, HttpResponse> {
 
     @Override
     protected void onPostExecute(HttpResponse result) {
+        System.out.println(result.getResponseText());
         System.out.println("========= [" + DateTimeHelper.getTimestamp() + "] Task ended.");
     }
 }

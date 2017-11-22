@@ -56,8 +56,9 @@ public class HomeActivity extends AppCompatActivity {
             Toast.makeText(this, "Een ogenblik geduld.", Toast.LENGTH_SHORT).show();
 
             HashMap<String, String> params = new HashMap<String, String>();
+            HashMap<String, String> headers = new HashMap<String, String>();
             params.put("device_name", UUID.randomUUID().toString());
-            new HomeActivity.RegisterHttpTask().execute(new HttpRequest("register", HttpVerb.POST, params));
+            new HomeActivity.RegisterHttpTask().execute(new HttpRequest("register", HttpVerb.POST, params, headers));
         }
 
         if (!prefs.getString("device_name", "").equals("") &&

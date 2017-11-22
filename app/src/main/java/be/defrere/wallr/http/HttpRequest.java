@@ -61,26 +61,37 @@ public class HttpRequest {
 
     public String getParams() {
         try {
+            if (params == null)
+                return "";
+
             return convertParams(params);
+
         } catch (UnsupportedEncodingException e) {
             e.getStackTrace();
             return "";
         }
     }
 
-    public HttpRequest(String api_path, HttpVerb verb, HashMap<String, String> params) {
+    public HttpRequest(String api_path, HttpVerb verb, HashMap<String, String> params, HashMap<String, String> headers) {
         this.api_path = api_path;
         this.verb = verb;
         this.params = params;
+        this.headers = headers;
     }
 
     public HttpRequest(String api_path, HttpVerb verb) {
-        this(api_path, verb, new HashMap<String, String>());
+        this(api_path, verb, null, null);
     }
 
     private String api_path;
     private HttpVerb verb;
     private HashMap<String, String> params;
+
+    public HashMap<String, String> getHeaders() {
+        return headers;
+    }
+
+    private HashMap<String, String> headers;
 
     private static String API_URL;
 }
