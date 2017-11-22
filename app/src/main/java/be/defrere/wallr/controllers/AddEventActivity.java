@@ -1,8 +1,10 @@
-package be.defrere.wallr;
+package be.defrere.wallr.controllers;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+
+import be.defrere.wallr.R;
 
 public class AddEventActivity extends AppCompatActivity {
 
