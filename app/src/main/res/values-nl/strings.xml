@@ -7,4 +7,7 @@
     <string name="add_event_keyword">Actie kernwoord</string>
     <string name="add_event_keyword_description">Dit is het kernwoord dat gebruikers moeten meesturen in elk bericht. Kies een goed en duidelijk kernwoord.\n\nEen kernwoord kan enkel letters en cijfers bevatten.</string>
     <string name="add_event_send">Maak event</string>
+    <string name="menu_settings" translatable="false">Instellingen</string>
+    <string name="menu_credentials">Gegevens</string>
+    <string name="menu_about">Over</string>
 </resources>
