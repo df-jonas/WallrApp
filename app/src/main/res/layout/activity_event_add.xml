@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="be.defrere.wallr.controllers.AddEventActivity">
+    tools:context="be.defrere.wallr.activities.EventAddActivity">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appBarLayout"

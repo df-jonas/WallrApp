@@ -1,6 +1,7 @@
 package be.defrere.wallr.models;
 
 import com.orm.SugarRecord;
+import com.orm.dsl.Ignore;
 import com.orm.dsl.Unique;
 
 import java.util.Date;
@@ -10,6 +11,9 @@ import java.util.Date;
  */
 
 public class User extends SugarRecord {
+
+    @Ignore
+    public static User currentUser = null;
 
     @Unique
     private int id;

@@ -83,4 +83,9 @@ public class Event extends SugarRecord {
     public Date getUpdated_at() {
         return updated_at;
     }
+
+    @Override
+    public String toString() {
+        return name;
+    }
 }

@@ -88,7 +88,7 @@ public class HttpTask extends AsyncTask<HttpRequest, Integer, HttpResponse> {
 
     @Override
     protected void onPostExecute(HttpResponse result) {
-        System.out.println(result.getResponseText());
+        System.out.println("Received response: " + result.getResponseText());
         System.out.println("========= [" + DateTimeHelper.getTimestamp() + "] Task ended.");
     }
 }

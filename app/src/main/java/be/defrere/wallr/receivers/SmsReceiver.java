@@ -30,6 +30,7 @@ public class SmsReceiver extends BroadcastReceiver {
                     System.err.println("Exception caught! " + e.getMessage());
                 }
             }
+
             System.out.println(source + ": " + message);
         }
     }

@@ -1,4 +1,4 @@
-package be.defrere.wallr.controllers;
+package be.defrere.wallr.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,7 +9,7 @@ import android.widget.EditText;
 
 import be.defrere.wallr.R;
 
-public class AddEventActivity extends AppCompatActivity {
+public class EventAddActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
     private EditText txtName;
@@ -19,7 +19,7 @@ public class AddEventActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_event);
+        setContentView(R.layout.activity_event_add);
 
         toolbar = findViewById(R.id.toolbar);
         txtName = findViewById(R.id.txtName);

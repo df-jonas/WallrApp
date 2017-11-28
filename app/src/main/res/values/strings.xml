@@ -14,4 +14,6 @@
     <string name="add_event_keyword">Trigger keyword</string>
     <string name="add_event_keyword_description">This will be the keyword that your users will have to provide in each message. Choose this one carefully.\n\nThis keyword can only contain alphanumeric characters.</string>
     <string name="add_event_send">Make event</string>
+    <string name="add_event_success_toast">The event was made and added to your home screen.</string>
+    <string name="add_event_fail_toast">Something went wrong, see logs for reason or stacktrace.</string>
 </resources>
