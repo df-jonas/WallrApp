@@ -10,3 +10,9 @@ android:
     - extra-android-support
     - addon-google_apis-google-16
     - sys-img-armeabi-v7a-android-16
+
+before_install:
+  - chmod +x gradlew
+
+script: 
+  - ./gradlew build
