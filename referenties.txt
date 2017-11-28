@@ -1,0 +1,8 @@
+Animations
+https://stackoverflow.com/questions/10243557/how-to-apply-slide-animation-between-two-activities-in-android
+
+Listener
+https://stackoverflow.com/questions/7089313/android-listen-for-incoming-sms-messages
+
+Menubar
+https://stackoverflow.com/questions/39439039/how-to-add-overflow-menu-to-toolbar
