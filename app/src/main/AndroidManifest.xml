@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="be.defrere.wallr">
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
 
@@ -12,37 +13,27 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <meta-data
-            android:name="DATABASE"
-            android:value="wallrdb.db" />
-        <meta-data
-            android:name="VERSION"
-            android:value="1" />
-        <meta-data
-            android:name="QUERY_LOG"
-            android:value="true" />
-        <meta-data
-            android:name="DOMAIN_PACKAGE_NAME"
-            android:value="com.orm.SugarApp" />
 
-        <receiver android:name=".receivers.SmsReceiver">
+        <receiver android:name=".receiver.SmsReceiver">
             <intent-filter>
                 <action android:name="android.provider.Telephony.SMS_RECEIVED" />
             </intent-filter>
         </receiver>
 
-        <activity android:name=".activities.HomeActivity">
+        <activity android:name=".activity.HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".activities.EventAddActivity"
+            android:name=".activity.EventAddActivity"
             android:label="@string/title_toolbar_add_event"
-            android:parentActivityName=".activities.HomeActivity" />
-        <activity android:name=".activities.EventDetailActivity"></activity>
+            android:parentActivityName=".activity.HomeActivity" />
+        <activity
+            android:name=".activity.EventDetailActivity"
+            android:label="@string/title_toolbar_detail_event"
+            android:parentActivityName=".activity.HomeActivity" />
     </application>
 
 </manifest>

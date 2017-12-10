@@ -1,4 +1,4 @@
-package be.defrere.wallr.http;
+package be.defrere.wallr.util.http;
 
 import android.os.AsyncTask;
 
@@ -11,9 +11,17 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.util.Map;
 
-import be.defrere.wallr.helpers.DateTimeHelper;
+import be.defrere.wallr.util.helper.DateTimeHelper;
 
 public class HttpTask extends AsyncTask<HttpRequest, Integer, HttpResponse> {
+
+    private HttpInterface mContext;
+
+    public HttpTask(Object context) {
+        if (context instanceof HttpInterface) {
+            this.mContext = (HttpInterface) context;
+        }
+    }
 
     @Override
     protected void onPreExecute() {
@@ -32,14 +40,10 @@ public class HttpTask extends AsyncTask<HttpRequest, Integer, HttpResponse> {
             client.setRequestMethod(r.getVerb());
             client.setRequestProperty("Accept", "application/json");
             if (r.getHeaders() != null) {
-                for (Map.Entry<String, String> pair: r.getHeaders().entrySet()) {
-                    if (pair.getKey().equals("Authorization")) {
-                        pair.setValue("Bearer " + pair.getKey());
-                    }
+                for (Map.Entry<String, String> pair : r.getHeaders().entrySet()) {
                     client.setRequestProperty(pair.getKey(), pair.getValue());
                 }
             }
-
 
             if (r.getVerb() != "GET") {
                 client.setDoOutput(true);
@@ -88,6 +92,9 @@ public class HttpTask extends AsyncTask<HttpRequest, Integer, HttpResponse> {
 
     @Override
     protected void onPostExecute(HttpResponse result) {
+        if (mContext != null) {
+            mContext.httpCallback(result);
+        }
         System.out.println("Received response: " + result.getResponseText());
         System.out.println("========= [" + DateTimeHelper.getTimestamp() + "] Task ended.");
     }

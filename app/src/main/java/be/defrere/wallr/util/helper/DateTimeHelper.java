@@ -1,5 +1,6 @@
-package be.defrere.wallr.helpers;
+package be.defrere.wallr.util.helper;
 
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -9,7 +10,7 @@ public class DateTimeHelper {
 
     public static String getTimestamp(){
         d = new Date();
-        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss.SSS");
-        return sdf.format(d);
+        DateFormat df = SimpleDateFormat.getDateTimeInstance();
+        return df.format(d);
     }
 }

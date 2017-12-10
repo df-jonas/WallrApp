@@ -1,4 +1,4 @@
-package be.defrere.wallr.http;
+package be.defrere.wallr.util.http;
 
 import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
@@ -88,6 +88,8 @@ public class HttpRequest {
     private HashMap<String, String> params;
 
     public HashMap<String, String> getHeaders() {
+        if (headers == null)
+            return new HashMap<>();
         return headers;
     }
 

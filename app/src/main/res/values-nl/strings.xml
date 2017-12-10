@@ -10,4 +10,9 @@
     <string name="menu_settings" translatable="false">Instellingen</string>
     <string name="menu_credentials">Gegevens</string>
     <string name="menu_about">Over</string>
+    <string name="add_event_phone">Telefoonnummer</string>
+    <string name="add_event_phone_description">Dit is het telefoonummer dat zal getoond worden op de website. Dit zou het telefoonnummer van dit apparaat moeten zijn, een ander telefoonnummer zal niet zoals verwacht werken.</string>
+    <string name="add_event_success_toast">Het event was gemaakt en toegevoegd op het startscherm.</string>
+    <string name="add_event_fail_toast">Er ging iets mis, bekijk de logs voor meer info.</string>
+    <string name="title_toolbar_detail_event">Evenement</string>
 </resources>

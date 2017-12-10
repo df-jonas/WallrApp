@@ -1,8 +1,4 @@
-package be.defrere.wallr.http;
-
-/**
- * Created by Jonas on 3/11/2017.
- */
+package be.defrere.wallr.util.http;
 
 public class HttpResponse {
 

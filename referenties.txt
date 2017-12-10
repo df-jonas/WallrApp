@@ -1,8 +1,13 @@
 Animations
 https://stackoverflow.com/questions/10243557/how-to-apply-slide-animation-between-two-activities-in-android
 
+Room
+https://developer.android.com/training/data-storage/room/index.html
+https://medium.com/@ajaysaini.official/building-database-with-room-persistence-library-ecf7d0b8f3e9
+
 Listener
 https://stackoverflow.com/questions/7089313/android-listen-for-incoming-sms-messages
 
 Menubar
 https://stackoverflow.com/questions/39439039/how-to-add-overflow-menu-to-toolbar
+

@@ -11,9 +11,19 @@
 
     <string name="add_event_name">Event name</string>
     <string name="add_event_name_description">This will be the event name that is displayed on the webpage. You can always change it later.</string>
+
     <string name="add_event_keyword">Trigger keyword</string>
     <string name="add_event_keyword_description">This will be the keyword that your users will have to provide in each message. Choose this one carefully.\n\nThis keyword can only contain alphanumeric characters.</string>
+
+    <string name="add_event_phone">Phone number</string>
+    <string name="add_event_phone_description">This is the phone number that will be displayed on the website. This should be the phonenumber of this device, choosing another number will not work.</string>
+
     <string name="add_event_send">Make event</string>
+
     <string name="add_event_success_toast">The event was made and added to your home screen.</string>
     <string name="add_event_fail_toast">Something went wrong, see logs for reason or stacktrace.</string>
+    <string name="title_toolbar_detail_event">Event</string>
+
+    <string name="snackbar_home_firstuse_pending">Preparing first use..</string>
+    <string name="snackbar_home_firstuse_done">Your app has been prepared for first use.</string>
 </resources>
