@@ -31,6 +31,7 @@ public class HttpTask extends AsyncTask<HttpRequest, Integer, HttpResponse> {
     @Override
     protected HttpResponse doInBackground(HttpRequest... request) {
         HttpRequest r = request[0];
+
         int responseCode = -1;
         HttpURLConnection client = null;
         StringBuilder content = new StringBuilder();
@@ -45,7 +46,7 @@ public class HttpTask extends AsyncTask<HttpRequest, Integer, HttpResponse> {
                 }
             }
 
-            if (r.getVerb() != "GET") {
+            if (r.getVerb().equals("GET")) {
                 client.setDoOutput(true);
                 OutputStream os = client.getOutputStream();
                 BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(os, "UTF-8"));

@@ -7,7 +7,7 @@
     <string name="add_event_keyword">Actie kernwoord</string>
     <string name="add_event_keyword_description">Dit is het kernwoord dat gebruikers moeten meesturen in elk bericht. Kies een goed en duidelijk kernwoord.\n\nEen kernwoord kan enkel letters en cijfers bevatten.</string>
     <string name="add_event_send">Maak event</string>
-    <string name="menu_settings" translatable="false">Instellingen</string>
+    <string name="menu_settings">Instellingen</string>
     <string name="menu_credentials">Gegevens</string>
     <string name="menu_about">Over</string>
     <string name="add_event_phone">Telefoonnummer</string>
@@ -15,4 +15,6 @@
     <string name="add_event_success_toast">Het event was gemaakt en toegevoegd op het startscherm.</string>
     <string name="add_event_fail_toast">Er ging iets mis, bekijk de logs voor meer info.</string>
     <string name="title_toolbar_detail_event">Evenement</string>
+    <string name="snackbar_home_firstuse_pending">Klaarmaken voor eerste gebruik..</string>
+    <string name="snackbar_home_firstuse_done">Jouw app is klaar voor eerste gebruik.</string>
 </resources>

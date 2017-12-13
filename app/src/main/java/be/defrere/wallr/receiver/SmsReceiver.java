@@ -8,7 +8,6 @@ import android.telephony.SmsMessage;
 
 import java.util.HashMap;
 import java.util.List;
-import java.util.UUID;
 
 import be.defrere.wallr.R;
 import be.defrere.wallr.database.AppDatabase;
@@ -23,6 +22,7 @@ import be.defrere.wallr.entity.Text;
 public class SmsReceiver extends BroadcastReceiver implements HttpInterface {
 
     private AppDatabase db;
+    private Text t;
 
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -32,17 +32,17 @@ public class SmsReceiver extends BroadcastReceiver implements HttpInterface {
         if (intent.getAction() != null && intent.getAction().equals("android.provider.Telephony.SMS_RECEIVED")) {
 
             Bundle b = intent.getExtras();
-            String message = "";
+            StringBuilder message = new StringBuilder();
             String source = "";
 
             if (b != null) {
                 try {
                     Object[] pdus = (Object[]) b.get("pdus");
                     if (pdus != null) {
-                        for (int i = 0; i < pdus.length; i++) {
-                            SmsMessage m = SmsMessage.createFromPdu((byte[]) pdus[i]);
+                        for (Object pdu : pdus) {
+                            SmsMessage m = SmsMessage.createFromPdu((byte[]) pdu);
                             source = m.getOriginatingAddress();
-                            message += m.getMessageBody();
+                            message.append(m.getMessageBody());
                         }
                     }
                 } catch (Exception e) {
@@ -50,33 +50,31 @@ public class SmsReceiver extends BroadcastReceiver implements HttpInterface {
                 }
             }
 
-
-            // TODO DEFTIG BEKIJKEN DIT
-
-            // Create HTTP prerequisites
-            HashMap<String, String> params = new HashMap<String, String>();
-            HashMap<String, String> headers = new HashMap<String, String>();
-            params.put("device_name", UUID.randomUUID().toString());
+            HashMap<String, String> headers = new HashMap<>();
             headers.put("Authorization", "Bearer " + context.getSharedPreferences(context.getString(R.string.preferences), Context.MODE_PRIVATE).getString("api_token", ""));
-
-            HttpRequest request = new HttpRequest("text", HttpVerb.POST, params, headers);
-
-            // Execute and httpCallback
-            new HttpTask(this).execute(request);
 
             List<Event> events = db.eventDao().all();
             for (Event e : events) {
                 String k = e.getKeyword();
 
-                if (message.length() > k.length() &&
-                        message.substring(0, k.length() - 1).trim().toUpperCase().equals(k.trim().toUpperCase())) {
-                    Text t = new Text();
+                String msgKey = message.toString().trim().substring(0, k.length()).toUpperCase();
+                String oriKey = k.trim().toUpperCase();
+
+                if (message.length() > k.length() && msgKey.equals(oriKey)) {
+
+                    HashMap<String, String> params = new HashMap<>();
+                    params.put("source", source);
+                    params.put("message", message.toString());
+
+                    HttpRequest request = new HttpRequest("texts/" + e.getId(), HttpVerb.POST, params, headers);
+                    new HttpTask(this).execute(request);
+
+                    t = new Text();
+                    t.setEventId(e.getId());
                     t.setSource(source);
-                    t.setContent(message);
-                    db.textDao().insert(t);
+                    t.setContent(message.toString());
                 }
             }
-
 
             System.out.println(source + ": " + message);
         }
@@ -84,6 +82,13 @@ public class SmsReceiver extends BroadcastReceiver implements HttpInterface {
 
     @Override
     public void httpCallback(HttpResponse httpResponse) {
-
+        if (httpResponse.getResponseCode() == 200) {
+            System.out.println("Success");
+            t.setSynced(true);
+        } else {
+            System.out.println("Fail");
+            t.setSynced(false);
+        }
+        db.textDao().insert(t);
     }
 }

@@ -57,8 +57,8 @@ public class EventAddActivity extends AppCompatActivity implements HttpInterface
         String phone = txtPhone.getText().toString();
 
         // Create HTTP prerequisites
-        HashMap<String, String> params = new HashMap<String, String>();
-        HashMap<String, String> headers = new HashMap<String, String>();
+        HashMap<String, String> params = new HashMap<>();
+        HashMap<String, String> headers = new HashMap<>();
         params.put("name", name);
         params.put("keyword", keyword);
         params.put("phone", phone);

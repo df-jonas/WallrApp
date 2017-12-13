@@ -78,7 +78,7 @@ public class HomeActivity extends AppCompatActivity implements HttpInterface {
         events = db.eventDao().all();
 
         Event[] ev = events.toArray(new Event[events.size()]);
-        lv.setAdapter(new ArrayAdapter<Event>(this, R.layout.listview_event, R.id.event_listview_label, ev));
+        lv.setAdapter(new ArrayAdapter<>(this, R.layout.listview_event, R.id.event_listview_label, ev));
 
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -139,8 +139,8 @@ public class HomeActivity extends AppCompatActivity implements HttpInterface {
             Toast.makeText(activity, "Een ogenblik geduld, we maken de app klaar voor eerste gebruik.", Toast.LENGTH_SHORT).show();
 
             // Create HTTP prerequisites
-            HashMap<String, String> params = new HashMap<String, String>();
-            HashMap<String, String> headers = new HashMap<String, String>();
+            HashMap<String, String> params = new HashMap<>();
+            HashMap<String, String> headers = new HashMap<>();
             params.put("device_name", UUID.randomUUID().toString());
             HttpRequest request = new HttpRequest("register", HttpVerb.POST, params, headers);
 
