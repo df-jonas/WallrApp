@@ -46,7 +46,7 @@ public class HttpTask extends AsyncTask<HttpRequest, Integer, HttpResponse> {
                 }
             }
 
-            if (r.getVerb().equals("GET")) {
+            if (!r.getVerb().equals("GET")) {
                 client.setDoOutput(true);
                 OutputStream os = client.getOutputStream();
                 BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(os, "UTF-8"));

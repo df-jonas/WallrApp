@@ -62,31 +62,31 @@ public class SmsReceiver extends BroadcastReceiver implements HttpInterface {
 
                 if (message.length() > k.length() && msgKey.equals(oriKey)) {
 
+                    System.out.println(source + ": " + message);
+
                     HashMap<String, String> params = new HashMap<>();
                     params.put("source", source);
-                    params.put("message", message.toString());
-
-                    HttpRequest request = new HttpRequest("texts/" + e.getId(), HttpVerb.POST, params, headers);
-                    new HttpTask(this).execute(request);
+                    params.put("message", message.toString().trim().substring(k.length() + 1));
 
                     t = new Text();
                     t.setEventId(e.getId());
                     t.setSource(source);
                     t.setContent(message.toString());
+
+                    HttpRequest request = new HttpRequest("texts/" + e.getId(), HttpVerb.POST, params, headers);
+                    new HttpTask(this).execute(request);
                 }
             }
-
-            System.out.println(source + ": " + message);
         }
     }
 
     @Override
     public void httpCallback(HttpResponse httpResponse) {
         if (httpResponse.getResponseCode() == 200) {
-            System.out.println("Success");
+            System.out.println("Task executed successfully.");
             t.setSynced(true);
         } else {
-            System.out.println("Fail");
+            System.err.println("The task for source " + t.getSource() + " failed.");
             t.setSynced(false);
         }
         db.textDao().insert(t);
