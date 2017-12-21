@@ -1,6 +1,7 @@
 package be.defrere.wallr.activity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -17,9 +18,10 @@ public class EventDetailActivity extends AppCompatActivity {
 
     private AppDatabase db;
     private Event current;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        db =  AppDatabase.getAppDatabase(this);
+        db = AppDatabase.getAppDatabase(this);
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_detail);
@@ -36,25 +38,27 @@ public class EventDetailActivity extends AppCompatActivity {
             toolbar = findViewById(R.id.toolbar);
             toolbar.setTitle(current.getName());
             this.setSupportActionBar(toolbar);
-
-            //TextView t = findViewById(R.id.event_detail_name);
         }
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-
-                Intent sendIntent = new Intent();
-                sendIntent.setAction(Intent.ACTION_SEND);
-                sendIntent.putExtra(Intent.EXTRA_TEXT, "https://www.facebook.com");
-                sendIntent.setType("text/plain");
-                startActivity(sendIntent);
-            }
-        });
     }
 
+    public void onShareClick(View v) {
+        Intent sendIntent = new Intent();
+        sendIntent.setAction(Intent.ACTION_SEND);
+        sendIntent.putExtra(Intent.EXTRA_TEXT, "https://wallr.eu/event/" + current.getPublicEventId());
+        sendIntent.setType("text/plain");
+        startActivity(sendIntent);
+    }
 
+    public void onDeleteClick(View v) {
+        db.eventDao().delete(current);
+        finish();
+    }
+
+    public void onEditClick(View v) {
+        // TODO Edit Event
+    }
+
+    public void onViewTextClick(View v) {
+        // TODO Show latest texts
+    }
 }

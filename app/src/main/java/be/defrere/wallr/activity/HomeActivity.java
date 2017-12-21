@@ -101,8 +101,6 @@ public class HomeActivity extends AppCompatActivity implements HttpInterface {
         switch (item.getItemId()) {
             case R.id.menu_settings: {
                 // TODO add settings view
-                Intent intent = new Intent(this, SettingsActivity.class);
-                startActivity(intent);
                 break;
             }
             case R.id.menu_credentials: {

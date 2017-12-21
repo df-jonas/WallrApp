@@ -34,9 +34,6 @@
             android:name=".activity.EventDetailActivity"
             android:label="@string/title_activity_event_detail"
             android:theme="@style/AppTheme" />
-        <activity
-            android:name=".activity.SettingsActivity"
-            android:label="@string/title_activity_settings"></activity>
     </application>
 
 </manifest>

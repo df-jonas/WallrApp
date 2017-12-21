@@ -12,7 +12,7 @@ import be.defrere.wallr.entity.Event;
 import be.defrere.wallr.entity.Text;
 import be.defrere.wallr.entity.User;
 
-@Database(entities = {User.class, Event.class, Text.class}, version = 1)
+@Database(entities = {User.class, Event.class, Text.class}, version = 2)
 public abstract class AppDatabase extends RoomDatabase {
 
     private static AppDatabase INSTANCE;
@@ -26,6 +26,7 @@ public abstract class AppDatabase extends RoomDatabase {
     public static AppDatabase getAppDatabase(Context context) {
         if (INSTANCE == null)
             INSTANCE = Room.databaseBuilder(context.getApplicationContext(), AppDatabase.class, "database")
+                    .fallbackToDestructiveMigration()
                     .allowMainThreadQueries()
                     .build();
         return INSTANCE;
