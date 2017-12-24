@@ -14,14 +14,12 @@
 
         <Button
             android:id="@+id/btnEventDetailShare"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="32dp"
-            android:drawableEnd="?attr/actionModeShareDrawable"
-            android:drawableRight="?attr/actionModeShareDrawable"
             android:onClick="onShareClick"
             android:text="Share link"
             android:textAlignment="textStart"
@@ -32,13 +30,11 @@
 
         <Button
             android:id="@+id/btnEventDetailEdit"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            android:drawableEnd="@drawable/ic_edit_black_24dp"
-            android:drawableRight="@drawable/ic_edit_black_24dp"
             android:onClick="onEditClick"
             android:text="Edit event"
             android:textAlignment="textStart"
@@ -49,13 +45,11 @@
 
         <Button
             android:id="@+id/btnEventDetailTexts"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="51dp"
             android:layout_gravity="start"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            android:drawableEnd="@drawable/ic_message_black_24dp"
-            android:drawableRight="@drawable/ic_message_black_24dp"
             android:onClick="onViewTextClick"
             android:text="View latest texts"
             android:textAlignment="textStart"
