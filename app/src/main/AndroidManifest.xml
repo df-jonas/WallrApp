@@ -13,6 +13,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <receiver android:name=".receiver.SmsReceiver">
             <intent-filter>
                 <action android:name="android.provider.Telephony.SMS_RECEIVED" />
@@ -22,18 +23,33 @@
         <activity android:name=".activity.HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".activity.EventAddActivity"
             android:label="@string/title_toolbar_add_event"
             android:parentActivityName=".activity.HomeActivity" />
+
         <activity
             android:name=".activity.EventDetailActivity"
             android:label="@string/title_activity_event_detail"
             android:theme="@style/AppTheme" />
+        <activity
+            android:name=".activity.SettingsActivity"
+            android:label="@string/title_activity_settings"
+            android:parentActivityName=".activity.HomeActivity" />
+
+        <activity
+            android:name=".activity.AboutActivity"
+            android:label="@string/title_activity_about"
+            android:parentActivityName=".activity.HomeActivity" />
+
+        <activity
+            android:name=".activity.CredentialsActivity"
+            android:label="@string/title_activity_credentials"
+            android:parentActivityName=".activity.HomeActivity" />
     </application>
 
 </manifest>

@@ -2,6 +2,7 @@ package be.defrere.wallr.activity;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -19,6 +20,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 import org.json.JSONException;
@@ -98,20 +100,27 @@ public class HomeActivity extends AppCompatActivity implements HttpInterface {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        Intent intent = null;
         switch (item.getItemId()) {
             case R.id.menu_settings: {
-                // TODO add settings view
+                intent = new Intent(this, SettingsActivity.class);
                 break;
             }
             case R.id.menu_credentials: {
-                // TODO add credentials view
+                intent = new Intent(this, CredentialsActivity.class);
                 break;
             }
             case R.id.menu_about: {
-                // TODO add about view
+                intent = new Intent(this, AboutActivity.class);
+                break;
+            }
+            case R.id.menu_add_event: {
+                intent = new Intent(this, EventAddActivity.class);
                 break;
             }
         }
+        if (intent != null)
+            startActivity(intent);
         return false;
     }
 
