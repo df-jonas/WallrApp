@@ -5,15 +5,17 @@
     <string name="title_toolbar_home" translatable="false">WallR</string>
     <string name="title_toolbar_add_event">Add event</string>
     <string name="title_toolbar_detail_event">Event</string>
-    <string name="title_activity_event_detail">EventDetailActivity</string>
+    <string name="title_activity_event_detail">Event</string>
     <string name="title_activity_settings">Settings</string>
     <string name="title_activity_about">About</string>
     <string name="title_activity_credentials">Credentials</string>
+    <string name="title_toolbar_edit_event">Edit event</string>
+    <string name="title_activity_texts">Texts</string>
 
     <string name="preferences" translatable="false">be.defrere.wallr.preferences</string>
 
     <string name="menu_settings">Settings</string>
-    <string name="menu_credentials">Identifiers</string>
+    <string name="menu_credentials">Credentials</string>
     <string name="menu_about">About</string>
     <string name="menu_add_event">Add event</string>
     <string name="menu_search">Search</string>
@@ -29,10 +31,18 @@
     <string name="add_event_phone_description">This is the phone number that will be displayed on the website. This should be the phonenumber of this device, choosing another number will not work.</string>
 
     <string name="add_event_send">Make event</string>
+    <string name="edit_event_send">Apply</string>
 
     <string name="add_event_success_toast">The event was made and added to your home screen.</string>
     <string name="add_event_fail_toast">Something went wrong, see logs for reason or stacktrace.</string>
 
     <string name="snackbar_home_firstuse_pending">Preparing first use..</string>
     <string name="snackbar_home_firstuse_done">Your app has been prepared for first use.</string>
+
+    <string name="about_underline">Made with \u2764 in Belgium.</string>
+    <string name="about_author" translatable="false">\u00A9 Jonas De Frère</string>
+
+    <string name="detail_event_share_btn">Share event</string>
+    <string name="detail_event_edit_btn">Edit event</string>
+    <string name="detail_event_texts_btn">View texts</string>
 </resources>

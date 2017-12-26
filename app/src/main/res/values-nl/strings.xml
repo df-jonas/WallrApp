@@ -17,4 +17,18 @@
     <string name="title_toolbar_detail_event">Evenement</string>
     <string name="snackbar_home_firstuse_pending">Klaarmaken voor eerste gebruik..</string>
     <string name="snackbar_home_firstuse_done">Jouw app is klaar voor eerste gebruik.</string>
+    <string name="title_activity_event_detail">Evenement</string>
+    <string name="title_activity_settings">Instellingen</string>
+    <string name="title_activity_about">Over</string>
+    <string name="title_activity_credentials">Gegevens</string>
+    <string name="title_toolbar_edit_event">Wijzig event</string>
+    <string name="edit_event_send">Wijzigen</string>
+    <string name="menu_add_event">Maak event</string>
+    <string name="menu_search">Zoek</string>
+    <string name="menu_search_hint">Zoek</string>
+    <string name="about_underline">Gemaakt met \\u2764 in België.</string>
+    <string name="title_toolbar_texts">Berichten</string>
+    <string name="detail_event_share_btn">Deel publieke link</string>
+    <string name="detail_event_edit_btn">Wijzig evenement</string>
+    <string name="detail_event_texts_btn">Bekijk berichten</string>
 </resources>

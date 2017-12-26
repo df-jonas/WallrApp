@@ -31,6 +31,9 @@ public class EventAddActivity extends AppCompatActivity implements HttpInterface
     private Button btnSend;
     private AppDatabase db;
 
+    private boolean isUpdateAction = false;
+    private Event currentEvent;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         db = AppDatabase.getAppDatabase(this);
@@ -49,6 +52,18 @@ public class EventAddActivity extends AppCompatActivity implements HttpInterface
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
+
+        if (getIntent() != null && getIntent().getExtras() != null && getIntent().hasExtra("edit_eventid")) {
+            currentEvent = db.eventDao().findById(Integer.parseInt(getIntent().getExtras().get("edit_eventid").toString()));
+
+            isUpdateAction = true;
+
+            toolbar.setTitle(R.string.title_toolbar_edit_event);
+            txtName.setText(currentEvent.getName());
+            txtKeyword.setText(currentEvent.getKeyword());
+            txtPhone.setText(currentEvent.getPhone());
+            btnSend.setText(R.string.edit_event_send);
+        }
     }
 
     public void onMakeEvent(View view) {
@@ -59,12 +74,20 @@ public class EventAddActivity extends AppCompatActivity implements HttpInterface
         // Create HTTP prerequisites
         HashMap<String, String> params = new HashMap<>();
         HashMap<String, String> headers = new HashMap<>();
+
+        headers.put("Authorization", "Bearer " + getSharedPreferences(getString(R.string.preferences), Context.MODE_PRIVATE).getString("api_token", ""));
+
         params.put("name", name);
         params.put("keyword", keyword);
         params.put("phone", phone);
-        headers.put("Authorization", "Bearer " + getSharedPreferences(getString(R.string.preferences), Context.MODE_PRIVATE).getString("api_token", ""));
 
-        HttpRequest request = new HttpRequest("events", HttpVerb.POST, params, headers);
+        HttpRequest request;
+
+        if (isUpdateAction) {
+            request = new HttpRequest("events/" + currentEvent.getId(), HttpVerb.POST, params, headers);
+        } else {
+            request = new HttpRequest("events", HttpVerb.POST, params, headers);
+        }
 
         // Execute and httpCallback
         new HttpTask(this).execute(request);
@@ -75,13 +98,21 @@ public class EventAddActivity extends AppCompatActivity implements HttpInterface
         try {
             JSONObject json = new JSONObject(r.getResponseText());
 
-            Event e = new Event();
-            e.setId(json.getInt("id"));
-            e.setName(json.getString("name"));
-            e.setPublicEventId(json.getString("public_event_id"));
-            e.setKeyword(json.getString("keyword"));
-            e.setPhone(json.getString("phone"));
-            db.eventDao().insert(e);
+            if (isUpdateAction) {
+                currentEvent.setName(json.getString("name"));
+                currentEvent.setPublicEventId(json.getString("public_event_id"));
+                currentEvent.setKeyword(json.getString("keyword"));
+                currentEvent.setPhone(json.getString("phone"));
+                db.eventDao().update(currentEvent);
+            } else {
+                Event e = new Event();
+                e.setId(json.getInt("id"));
+                e.setName(json.getString("name"));
+                e.setPublicEventId(json.getString("public_event_id"));
+                e.setKeyword(json.getString("keyword"));
+                e.setPhone(json.getString("phone"));
+                db.eventDao().insert(e);
+            }
         } catch (JSONException e1) {
             e1.printStackTrace();
         }
