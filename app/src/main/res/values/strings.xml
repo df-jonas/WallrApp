@@ -51,4 +51,5 @@
     <string name="credentials_lbl_apitoken">Authentication token</string>
     <string name="credentials_lbl_verifytoken">Verification token</string>
     <string name="credentials_lbl_desc">Keep this information confidential at all times. If you lose these, you lose every way of recovering your data from the WallR-servers.</string>
+    <string name="title_toolbar_texts">Texts</string>
 </resources>

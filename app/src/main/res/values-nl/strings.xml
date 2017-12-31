@@ -31,4 +31,10 @@
     <string name="detail_event_share_btn">Deel publieke link</string>
     <string name="detail_event_edit_btn">Wijzig evenement</string>
     <string name="detail_event_texts_btn">Bekijk berichten</string>
+    <string name="title_activity_texts">Berichten</string>
+    <string name="credentials_lbl_devicename">Apparaatnaam</string>
+    <string name="credentials_lbl_deviceuuid">Apparaat ID</string>
+    <string name="credentials_lbl_apitoken">Authenticatie token</string>
+    <string name="credentials_lbl_verifytoken">Verificatie token</string>
+    <string name="credentials_lbl_desc">Hou deze gegevens ten allen tijde privé. Deze gegevens geven toegang tot de al uw data die opgeskafen is op de WallR-servers. Zonder deze gegevens heeft u geen manier om uw data te herstellen.</string>
 </resources>
