@@ -25,7 +25,9 @@ public class EventDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_detail);
 
-        eventid = Integer.parseInt(getIntent().getExtras().get("eventid").toString());
+        if (eventid == 0) {
+            eventid = Integer.parseInt(getIntent().getExtras().get("eventid").toString());
+        }
     }
 
     @Override
