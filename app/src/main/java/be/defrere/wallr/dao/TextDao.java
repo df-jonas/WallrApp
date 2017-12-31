@@ -19,6 +19,9 @@ public interface TextDao {
     @Query("SELECT * FROM texts where id=:id")
     Text findById(int id);
 
+    @Query("SELECT * FROM texts where event_id=:eventid")
+    List<Text> findByEvent(int eventid);
+
     @Insert
     void insert(Text text);
 

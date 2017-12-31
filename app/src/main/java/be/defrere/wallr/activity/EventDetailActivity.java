@@ -16,7 +16,7 @@ public class EventDetailActivity extends AppCompatActivity {
     private AppDatabase db;
     private Event current;
     private int eventid;
-    Toolbar toolbar;
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +69,7 @@ public class EventDetailActivity extends AppCompatActivity {
 
     public void onViewTextClick(View v) {
         Intent i = new Intent(this, TextsActivity.class);
+        i.putExtra("eventid", current.getId());
         startActivity(i);
     }
 }

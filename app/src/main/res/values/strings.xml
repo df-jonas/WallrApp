@@ -45,4 +45,10 @@
     <string name="detail_event_share_btn">Share event</string>
     <string name="detail_event_edit_btn">Edit event</string>
     <string name="detail_event_texts_btn">View texts</string>
+
+    <string name="credentials_lbl_devicename">Device name</string>
+    <string name="credentials_lbl_deviceuuid">Device ID</string>
+    <string name="credentials_lbl_apitoken">Authentication token</string>
+    <string name="credentials_lbl_verifytoken">Verification token</string>
+    <string name="credentials_lbl_desc">Keep this information confidential at all times. If you lose these, you lose every way of recovering your data from the WallR-servers.</string>
 </resources>
