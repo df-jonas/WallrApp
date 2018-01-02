@@ -19,6 +19,9 @@ public interface EventDao {
     @Query("SELECT * FROM events where id=:id")
     Event findById(int id);
 
+    @Query("SELECT * FROM events ORDER BY id DESC LIMIT 1;")
+    List<Event> last();
+
     @Insert
     void insert(Event event);
 

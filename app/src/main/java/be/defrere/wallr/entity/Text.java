@@ -80,4 +80,30 @@ public class Text {
     public String toString() {
         return source + ": " + content;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o)
+            return true;
+
+        if (o == null || getClass() != o.getClass())
+            return false;
+
+        Text text = (Text) o;
+
+        return !(eventId == 0 || source == null || content == null)
+                && eventId == text.eventId
+                && source.equals(text.source)
+                && content.equals(text.content);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id;
+        result = 31 * result + eventId;
+        result = 31 * result + (source != null ? source.hashCode() : 0);
+        result = 31 * result + (content != null ? content.hashCode() : 0);
+        result = 31 * result + (synced ? 1 : 0);
+        return result;
+    }
 }

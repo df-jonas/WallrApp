@@ -11,6 +11,7 @@
     <string name="title_activity_credentials">Credentials</string>
     <string name="title_toolbar_edit_event">Edit event</string>
     <string name="title_activity_texts">Texts</string>
+    <string name="title_toolbar_texts">Texts</string>
 
     <string name="preferences" translatable="false">be.defrere.wallr.preferences</string>
 
@@ -51,5 +52,4 @@
     <string name="credentials_lbl_apitoken">Authentication token</string>
     <string name="credentials_lbl_verifytoken">Verification token</string>
     <string name="credentials_lbl_desc">Keep this information confidential at all times. If you lose these, you lose every way of recovering your data from the WallR-servers.</string>
-    <string name="title_toolbar_texts">Texts</string>
 </resources>

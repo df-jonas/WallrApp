@@ -99,4 +99,34 @@ public class Event {
     public String toString() {
         return name;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o)
+            return true;
+
+        if (o == null || getClass() != o.getClass())
+            return false;
+
+        Event event = (Event) o;
+
+        return !(name == null || keyword == null || phone == null || publicEventId == null)
+                && name.equals(event.name)
+                && keyword.equals(event.keyword)
+                && phone.equals(event.phone)
+                && publicEventId.equals(event.publicEventId);
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id;
+        result = 31 * result + userId;
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + (keyword != null ? keyword.hashCode() : 0);
+        result = 31 * result + (phone != null ? phone.hashCode() : 0);
+        result = 31 * result + (publicEventId != null ? publicEventId.hashCode() : 0);
+        result = 31 * result + (synced ? 1 : 0);
+        return result;
+    }
 }

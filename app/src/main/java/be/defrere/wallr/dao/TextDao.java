@@ -22,6 +22,9 @@ public interface TextDao {
     @Query("SELECT * FROM texts where event_id=:eventid")
     List<Text> findByEvent(int eventid);
 
+    @Query("SELECT * FROM texts ORDER BY id DESC LIMIT 1;")
+    List<Text> last();
+
     @Insert
     void insert(Text text);
 
