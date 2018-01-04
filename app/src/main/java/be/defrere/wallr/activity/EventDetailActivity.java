@@ -10,6 +10,8 @@ import android.view.View;
 import be.defrere.wallr.R;
 import be.defrere.wallr.database.AppDatabase;
 import be.defrere.wallr.entity.Event;
+import be.defrere.wallr.entity.Text;
+import be.defrere.wallr.fragments.TextsFragment;
 
 public class EventDetailActivity extends AppCompatActivity {
 
@@ -68,8 +70,8 @@ public class EventDetailActivity extends AppCompatActivity {
     }
 
     public void onViewTextClick(View v) {
-        Intent i = new Intent(this, TextsActivity.class);
-        i.putExtra("eventid", current.getId());
-        startActivity(i);
+        int textid = current.getId();
+        TextsFragment textsFragment = (TextsFragment) getSupportFragmentManager().findFragmentById(R.id.fragment_texts);
+        textsFragment.updateFragment(textid);
     }
 }

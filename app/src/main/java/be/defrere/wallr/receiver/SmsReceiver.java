@@ -10,6 +10,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import be.defrere.wallr.R;
+import be.defrere.wallr.WallrNewTextNotification;
 import be.defrere.wallr.database.AppDatabase;
 import be.defrere.wallr.entity.Event;
 import be.defrere.wallr.util.http.HttpInterface;
@@ -23,10 +24,12 @@ public class SmsReceiver extends BroadcastReceiver implements HttpInterface {
 
     private AppDatabase db;
     private Text t;
+    private Context context;
 
     @Override
     public void onReceive(Context context, Intent intent) {
 
+        this.context = context;
         db = AppDatabase.getAppDatabase(context);
 
         if (intent.getAction() != null && intent.getAction().equals("android.provider.Telephony.SMS_RECEIVED")) {
@@ -84,6 +87,7 @@ public class SmsReceiver extends BroadcastReceiver implements HttpInterface {
     public void httpCallback(HttpResponse httpResponse) {
         if (httpResponse.getResponseCode() == 200) {
             System.out.println("Task executed successfully.");
+            WallrNewTextNotification.notify(context);
             t.setSynced(true);
         } else {
             System.err.println("The task for source " + t.getSource() + " failed.");

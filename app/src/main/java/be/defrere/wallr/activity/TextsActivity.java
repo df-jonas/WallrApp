@@ -28,6 +28,8 @@ public class TextsActivity extends AppCompatActivity {
         db = AppDatabase.getAppDatabase(this);
         texts = db.textDao().findByEvent(Integer.parseInt(getIntent().getExtras().get("eventid").toString()));
 
+        System.out.println(texts.size());
+
         Text[] ev = texts.toArray(new Text[texts.size()]);
 
         lv.setAdapter(new ArrayAdapter<>(this, R.layout.listview_text, R.id.text_listview_label, ev));
