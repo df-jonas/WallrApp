@@ -25,7 +25,7 @@
     <string name="menu_add_event">Maak event</string>
     <string name="menu_search">Zoek</string>
     <string name="menu_search_hint">Zoek</string>
-    <string name="about_underline">Gemaakt met \\u2764 in België.</string>
+    <string name="about_underline">Gemaakt met \u2764 in België.</string>
     <string name="title_toolbar_texts">Berichten</string>
     <string name="detail_event_share_btn">Deel publieke link</string>
     <string name="detail_event_edit_btn">Wijzig evenement</string>
