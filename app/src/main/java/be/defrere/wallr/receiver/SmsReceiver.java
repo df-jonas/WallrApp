@@ -60,7 +60,10 @@ public class SmsReceiver extends BroadcastReceiver implements HttpInterface {
             for (Event e : events) {
                 String k = e.getKeyword();
 
-                String msgKey = message.toString().trim().substring(0, k.length()).toUpperCase();
+                String msgKey = "";
+                if (k.length() <= message.toString().trim().length()) {
+                    msgKey = message.toString().trim().substring(0, k.length()).toUpperCase();
+                }
                 String oriKey = k.trim().toUpperCase();
 
                 if (message.length() > k.length() && msgKey.equals(oriKey)) {
