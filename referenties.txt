@@ -12,5 +12,6 @@ Menubar
 https://stackoverflow.com/questions/39439039/how-to-add-overflow-menu-to-toolbar
 
 Notification
+https://developer.android.com/training/notify-user/build-notification.html
 https://stackoverflow.com/questions/42177771/open-app-after-clicking-on-notification/
 
